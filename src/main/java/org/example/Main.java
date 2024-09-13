@@ -1,5 +1,4 @@
 package org.example;
-import java.sql.Array;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -36,8 +35,7 @@ public class Main {
             cont++;
 
         }
-
-
+        
         reader.close();
     }
 }
