@@ -33,3 +33,9 @@ For each test case the program will write the number of lit candles the person w
 
 2
 
+## Command line execution
+
+While classes already created:
+```
+java -cp target/classes org.example.main
+```
