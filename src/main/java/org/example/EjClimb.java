@@ -1,43 +1,45 @@
 package org.example;
+import java.util.Scanner;
+
 
 /**
- *   java -cp .\target\classes org.example.MainV2 2 32 12
+ * The first number in the input indicates how many test cases are to be processed.
+ * It is followed by a line for each test case, with two numbers between 1 and 1,000,000.
+ * The first one indicates the number of steps and the second one indicates how many steps
+ * can be climbed at a time.
  */
 
-public class MainV2 {
+public class EjClimb {
     public static void main(String[] args) {
 
-        if (args.length==0){
-            System.out.println("Pon las cosas(números)");
-        }
-        else{
-            // First argument is the number of cases
-            int casos = Integer.parseInt(args[0]);
-            int cont = 0;
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter number of cases: ");
 
-            if (casos != args.length-1){
-                System.out.println("Esta mal, hazlo otra vez");
-            }
-            else {
-                while (cont < casos) {
-                    int numVelas = 0;
+        int cont=0;
+        int casos = reader.nextInt();
 
-                    // Each subsequent argument corresponds to the numbers for each case
-                    String binario = Integer.toBinaryString(Integer.parseInt(args[cont + 1]));
+        while (cont<casos){
+            int pasosFinales=0;
 
-                    char[] cadenaVelas = binario.toCharArray();
+            System.out.println("Enter pasos y saltos: ");
+            int pasosIniciales = reader.nextInt();
+            int saltos = reader.nextInt();
 
-                    for (int i = 0; i < cadenaVelas.length; i++) {
-                        if (cadenaVelas[i] == '1') {
-                            numVelas++;
-                        }
-                    }
+            if (pasosIniciales>=1 && pasosIniciales<=1000000 && saltos>=1 && saltos<=1000000){
+                pasosFinales=pasosIniciales/saltos;
 
-                    System.out.println(numVelas);
-
-                    cont++;
+                if (pasosIniciales%saltos!=0){
+                    pasosFinales++;
                 }
+
+                System.out.println(pasosFinales);
+                cont++;
+            }
+            else{
+                System.out.println("Error, los numeros deben estar entre 1 y 1,000,000");
             }
         }
+
+        reader.close();
     }
 }

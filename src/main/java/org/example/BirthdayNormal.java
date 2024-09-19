@@ -6,7 +6,7 @@ import java.util.Scanner;
 *   Comment
 */
 
-public class Main {
+public class BirthdayNormal {
     public static void main(String[] args) {
 
         Scanner reader = new Scanner(System.in);

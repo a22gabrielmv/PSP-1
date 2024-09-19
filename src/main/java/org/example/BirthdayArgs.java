@@ -4,7 +4,7 @@ package org.example;
  *   java -cp .\target\classes org.example.MainV2 2 32 12
  */
 
-public class MainV2 {
+public class BirthdayArgs {
     public static void main(String[] args) {
 
         if (args.length==0){
