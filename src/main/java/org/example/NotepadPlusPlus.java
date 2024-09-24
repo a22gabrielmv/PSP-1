@@ -1,5 +1,5 @@
 package org.example;
-import java.util.Scanner;
+import java.io.IOException;
 
 
 /**
@@ -9,37 +9,10 @@ import java.util.Scanner;
  * can be climbed at a time.
  */
 
-public class EjClimb {
-    public static void main(String[] args) {
-
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Enter number of cases: ");
-
-        int cont=0;
-        int casos = reader.nextInt();
-
-        while (cont<casos){
-            int pasosFinales=0;
-
-            System.out.println("Enter pasos y saltos: ");
-            int pasosIniciales = reader.nextInt();
-            int saltos = reader.nextInt();
-
-            if (pasosIniciales>=1 && pasosIniciales<=1000000 && saltos>=1 && saltos<=1000000){
-                pasosFinales=pasosIniciales/saltos;
-
-                if (pasosIniciales%saltos!=0){
-                    pasosFinales++;
-                }
-
-                System.out.println(pasosFinales);
-                cont++;
-            }
-            else{
-                System.out.println("Error, los numeros deben estar entre 1 y 1,000,000");
-            }
-        }
-
-        reader.close();
+public class NotepadPlusPlus {
+    public static void main(String[] args) throws IOException {
+        Runtime runtime=Runtime.getRuntime();
+        String[] command={"C:/Program Files/Notepad++/notepad++.exe"};
+        Process process= runtime.exec(command);
     }
 }

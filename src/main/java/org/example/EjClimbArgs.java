@@ -1,5 +1,4 @@
 package org.example;
-import java.util.Scanner;
 
 
 /**
@@ -9,37 +8,39 @@ import java.util.Scanner;
  * can be climbed at a time.
  */
 
-public class EjClimb {
+public class EjClimbArgs {
     public static void main(String[] args) {
 
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Enter number of cases: ");
+        if (args.length==0){
+            System.out.println("Pon argumentos");
+        }
+        else{
+            int cont=0;
+            int nextArg=0;
+            int casos = Integer.parseInt(args[0]);
 
-        int cont=0;
-        int casos = reader.nextInt();
+            while (cont < casos && nextArg+1 < args.length){
+                int pasosFinales=0;
 
-        while (cont<casos){
-            int pasosFinales=0;
+                int pasosIniciales = Integer.parseInt(args[nextArg+1]);
+                int saltos = Integer.parseInt(args[nextArg+2]);
 
-            System.out.println("Enter pasos y saltos: ");
-            int pasosIniciales = reader.nextInt();
-            int saltos = reader.nextInt();
+                if (pasosIniciales>=1 && pasosIniciales<=1000000 && saltos>=1 && saltos<=1000000){
+                    pasosFinales=pasosIniciales/saltos;
 
-            if (pasosIniciales>=1 && pasosIniciales<=1000000 && saltos>=1 && saltos<=1000000){
-                pasosFinales=pasosIniciales/saltos;
+                    if (pasosIniciales%saltos!=0){
+                        pasosFinales++;
+                    }
 
-                if (pasosIniciales%saltos!=0){
-                    pasosFinales++;
+                    System.out.println(pasosFinales);
+                    cont++;
+                    nextArg+=2;
                 }
-
-                System.out.println(pasosFinales);
-                cont++;
-            }
-            else{
-                System.out.println("Error, los numeros deben estar entre 1 y 1,000,000");
+                else{
+                    System.out.println("Error, los numeros deben estar entre 1 y 1,000,000");
+                    break;
+                }
             }
         }
-
-        reader.close();
     }
 }
